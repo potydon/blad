@@ -1,7 +1,7 @@
 --- ahmadinne's Neovim configurations ---
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.wrap = false
+vim.o.wrap = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.smartindent = true
@@ -16,13 +16,10 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>so', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
 
 vim.keymap.set({'n', 'v', 'x'}, '<leader>y', '"+y<CR>')
 vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p<CR>')
 vim.keymap.set({'n', 'v', 'x'}, '<leader>d', '"+d<CR>')
-vim.keymap.set({'n', 'v', 'x'}, '<leader>s', ':e #<CR>')
-vim.keymap.set({'n', 'v', 'x'}, '<leader>S', ':sf #<CR>')
 
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
@@ -46,6 +43,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 require "lazy".setup({
 	{ "3rd/image.nvim", build = false, opts = { processor = "magick_cli" } },
+	{ "saghen/blink.cmp", dependencies = {'rafamadriz/friendly-snippets', 'L3MON4D3/LuaSnip' }, version = '1.*'},
+	{ "mason-org/mason.nvim", dependencies = {'mason-org/mason-lspconfig.nvim', 'WhoIsSethDaniel/mason-tool-installer.nvim'} },
 	"thepogsupreme/mountain.nvim",
 	"neovim/nvim-lspconfig",
 	"lambdalisue/vim-suda",
@@ -76,11 +75,24 @@ require "oil".setup({
 		["<BS>"] = { "actions.parent", mode = "n" },
 	}
 })
+require "mason".setup()
+require "mason-lspconfig".setup()
+require "mason-tool-installer".setup({
+	ensure_installed = { "lua_ls", "stylua", "bashls" }
+})
+require "blink.cmp".setup({
+	list = { selection = { preselect = false, auto_insert = true } },
+})
+require "luasnip.loaders.from_vscode".lazy_load()
 
 -- Lsp
 vim.lsp.enable({ "lua_ls" })
 vim.lsp.config("lua_ls", {
 	settings = { Lua = { workspace = { library = vim.api.nvim_get_runtime_file("", true) } } }
+})
+vim.diagnostic.config({
+	virtual_text = true,
+	update_in_insert = false,
 })
 
 -- Colorscheme
