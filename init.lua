@@ -2,14 +2,21 @@
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.wrap = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 vim.o.smartindent = true
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.swapfile = false
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = "yes:1"
 vim.opt.winborder = "single"
+vim.o.ignorecase = true
+vim.o.incsearch = true
+vim.o.smartcase = true
+vim.o.inccommand = "split"
+vim.o.updatetime = 250
+vim.o.timeout = false
+vim.o.laststatus = 3
 vim.g.mapleader = ' '
 
 -- Keymaps
@@ -25,6 +32,7 @@ vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>fg', ':Pick grep_live<CR>')
 vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
+vim.keymap.set('n', '<ESC>', ':nohl<CR>')
 vim.keymap.set('n', '<leader><space>', ':Pick buffers<CR>')
 vim.keymap.set('ca', 'w!', 'SudaWrite')
 
@@ -78,7 +86,7 @@ require "oil".setup({
 require "mason".setup()
 require "mason-lspconfig".setup()
 require "mason-tool-installer".setup({
-	ensure_installed = { "lua_ls", "stylua", "bashls" }
+	ensure_installed = { "lua_ls", "stylua", "bashls", "bash-debug-adapter", "shellcheck", "clangd", "cpptools", "cpplint", "biome", "js-debug-adapter" }
 })
 require "blink.cmp".setup({
 	list = { selection = { preselect = false, auto_insert = true } },
@@ -91,8 +99,11 @@ vim.lsp.config("lua_ls", {
 	settings = { Lua = { workspace = { library = vim.api.nvim_get_runtime_file("", true) } } }
 })
 vim.diagnostic.config({
-	virtual_text = true,
-	update_in_insert = false,
+	signs = false,
+	underline = true,
+	virtual_text = false,
+	virtual_lines = { current_line = true },
+	update_in_insert = true,
 })
 
 -- Colorscheme
