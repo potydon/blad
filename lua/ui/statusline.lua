@@ -1,3 +1,4 @@
+require("globals")
 local M = {}
 
 local api, fn, bo = vim.api, vim.fn, vim.bo

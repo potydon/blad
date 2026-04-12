@@ -9,9 +9,17 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "'v1.10.2'"
     },
+    "cold.nvim": {
+      "rev": "3ab9fcd733b707079662c488bc1da54377d85ae8",
+      "src": "https://github.com/gmr458/cold.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "iceberg.nvim": {
+      "rev": "15070f77066fce582f5fae09ce4faa080c33aefd",
+      "src": "https://github.com/oahlen/iceberg.nvim"
     },
     "image.nvim": {
       "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
@@ -20,6 +28,10 @@
     "live-preview.nvim": {
       "rev": "c1fcf75c5f9c9c01dd392852de44204b60f1b5b1",
       "src": "https://github.com/brianhuster/live-preview.nvim"
+    },
+    "lush.nvim": {
+      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
+      "src": "https://github.com/rktjmp/lush.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "0a3b42c3e503df87aef6d6513e13148381495c3a",
@@ -41,6 +53,18 @@
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "no-clown-fiesta.nvim": {
+      "rev": "04b808e9769ded988089772ffcaf08d92d75d927",
+      "src": "https://github.com/aktersnurra/no-clown-fiesta.nvim"
+    },
+    "nord.nvim": {
+      "rev": "07647ad23e5b7fc1599a841dcd8f173b9aeb0419",
+      "src": "https://github.com/gbprod/nord.nvim"
+    },
+    "nordic.nvim": {
+      "rev": "9f757428264ef1fcd1703e17702d3a28f307a2f7",
+      "src": "https://github.com/alexvzyl/nordic.nvim"
+    },
     "nvim-colorizer.lua": {
       "rev": "5cfe7fffbd01e17b3c1e14af85d5febdef88bd8c",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
@@ -60,6 +84,14 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "rnum.nvim": {
+      "rev": "84ffd6b36e6ca26be492b2680f09e6f3ad57ef5e",
+      "src": "https://github.com/walkingshamrock/rnum.nvim"
+    },
+    "techbase.nvim": {
+      "rev": "fc4e039e370043d7ae7203c9a1dbbda76f683740",
+      "src": "https://github.com/mcauley-penney/techbase.nvim"
     },
     "telescope.nvim": {
       "rev": "f7c673b8e46e8f233ff581d3624a517d33a7e264",
@@ -81,6 +113,10 @@
     "visual-whitespace.nvim": {
       "rev": "49ff2b1c572ed7033a584381fa23aad2bf3bb258",
       "src": "https://github.com/mcauley-penney/visual-whitespace.nvim"
+    },
+    "zenbones.nvim": {
+      "rev": "22b7fb75593412e0dc81b4bdefae718e9e84aa82",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
     }
   }
 }

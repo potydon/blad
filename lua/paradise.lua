@@ -85,7 +85,7 @@ hl("CmpItemKindSnippet", color.base0E)
 
 -- Number
 hl("CursorLine")
-hl("CursorLineNR")
+hl("CursorLineNR", color.base07)
 hl("LineNr", color.base03)
 
 -- Others

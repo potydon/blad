@@ -1,20 +1,21 @@
 --- ahmadinne's Neovim configurations ---
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.termguicolors = true
-vim.opt.undofile = true
-vim.opt.swapfile = false
-vim.opt.signcolumn = "yes:1"
+vim.opt.background = "dark"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = "menuone,noselect"
 vim.opt.fillchars = { eob = " " }
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 4
+vim.opt.signcolumn = "yes:1"
 vim.opt.smartcase = true
-vim.opt.completeopt = "menuone,noselect"
-vim.opt.clipboard = "unnamedplus"
+vim.opt.softtabstop = 4
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.undofile = true
+vim.opt.wrap = false
 vim.g.mapleader = " "
 
 -- Keymaps
@@ -44,7 +45,6 @@ vim.keymap.set("ca", "w!", "SudaWrite")
 vim.cmd("packadd nvim.undotree")
 vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = "v1.10.2" },
-	{ src = "https://github.com/tuurep/vim-wordmotion", version = "dev" },
 	"https://github.com/L3MON4D3/LuaSnip", --blink deps
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim", -- mason deps
@@ -58,11 +58,13 @@ vim.pack.add({
 	"https://github.com/rachartier/tiny-glimmer.nvim",
 	"https://github.com/mcauley-penney/visual-whitespace.nvim",
 	"https://github.com/brianhuster/live-preview.nvim",
+	"https://github.com/walkingshamrock/rnum.nvim",
+	-- "https://github.com/aktersnurra/no-clown-fiesta.nvim",
 })
 require("colorizer").setup()
-require("tiny-glimmer").setup()
-require("image").enable()
+require("tiny-glimmer").setup() require("image").enable()
 require("image").setup({ backend = "sixel", processor = "magick_cli" })
+require("rnum").setup({ number_width = 4, })
 require("oil").setup({
 	default_file_explorer = true,
 	delete_to_trash = true,
@@ -112,7 +114,7 @@ require("blink.cmp").setup({
 	signature = { enabled = true },
 	completion = {
 		documentation = { auto_show = false },
-		menu = { auto_show = false },
+		menu = { auto_show = true },
 	},
 })
 
@@ -134,6 +136,6 @@ vim.diagnostic.config({
 })
 
 -- Colorscheme
+-- vim.cmd.colorscheme("nordbones")
 require("paradise")
-require("globals")
 require("ui")
