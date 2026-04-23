@@ -114,28 +114,17 @@ local function fileinfo_widget()
   local lines = tools.group_number(api.nvim_buf_line_count(0), ",")
   local str = ICON.fileinfo .. " "
 
-  if not tools.nonprog_modes[ft] then
+  local wc = fn.wordcount()
+  if not tools.nonprog_modes[ft] and not wc.visual_words then
     return str .. string.format("%3s lines", lines)
   end
 
-  local wc = fn.wordcount()
   if not wc.visual_words then
-    return str
-      .. string.format(
-        "%3s lines  %3s words",
-        lines,
-        tools.group_number(wc.words, ",")
-      )
+    return str .. string.format( "%3s lines  %3s words", lines, tools.group_number(wc.words, ","))
   end
 
   local vlines = math.abs(fn.line(".") - fn.line("v")) + 1
-  return str
-    .. string.format(
-      "%3s lines %3s words  %3s chars",
-      tools.group_number(vlines, ","),
-      tools.group_number(wc.visual_words, ","),
-      tools.group_number(wc.visual_chars, ",")
-    )
+  return str .. string.format( "%3s lines %3s words  %3s chars", tools.group_number(vlines, ","), tools.group_number(wc.visual_words, ","), tools.group_number(wc.visual_chars, ","))
 end
 
 -- python venv ---------------------------------------------
